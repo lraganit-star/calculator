@@ -1,14 +1,23 @@
+body {
+    padding: 25px;
+}
+
+#display {
+    height: 50px;
+    width: 146px;
+    border: 2px solid black;
+}
+
 #buttons {
     display: flex;
-    width: 162px;
+    width: 150px;
     flex-wrap: wrap;
 }
 
 button{
-    height: 50px;
+    height: 40px;
     width: 50px;
     font-size: 24px;
     color: white;
     background-color: #93A9d1;
-
 }
