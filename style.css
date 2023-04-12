@@ -1,0 +1,14 @@
+#buttons {
+    display: flex;
+    width: 162px;
+    flex-wrap: wrap;
+}
+
+button{
+    height: 50px;
+    width: 50px;
+    font-size: 24px;
+    color: white;
+    background-color: #93A9d1;
+
+}
