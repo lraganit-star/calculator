@@ -6,16 +6,19 @@ var inputVal = "";
 
 for (const button of buttons) {
     button.addEventListener("click", function() {
+        
         display.innerHTML += button.innerHTML;
         inputVal += button.innerHTML;
+        operate();
     })
 }
+
+console.log("inputVal", inputVal)
+console.log('display', display.innerHTML)
 
 clearButton.addEventListener("click", function() {
     display.innerHTML = ""
 })
-
-console.log("inputVal", inputVal)
 
 var num1 = "";
 var num2 = "";
@@ -38,19 +41,14 @@ function divide(num1, num2) {
 }
 
 function operate(num1, operation, num2) {
-    if (operation == "+") {
-        return num1 + num2;
-    }
-
-    else if(operation == "-") {
-        return num1 - num2; 
-    }
-
-    else if(operation == "x") {
-        return num1 * num2;
-    }
-
-    else if (operation == "÷") {
-        return num1 / num2;
+    switch (operator) {
+        case "+": 
+            return addition(num1, num2);
+        case "-":
+            return subtract(num1, num2);
+        case "x":
+            return multiply(num1, num2);\
+        case "÷":
+            return divide(num1, num2);
     }
 }
