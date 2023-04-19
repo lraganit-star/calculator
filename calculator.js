@@ -15,6 +15,10 @@ clearButton.addEventListener("click", function() {
     display.innerHTML = ""
     inputVal == ""
     answerDisplay.innerHTML = ""
+    num1 = "";
+    num2 = "";
+    operation = "";
+
 })
 
 for (const opButton of operationButtons) {
@@ -52,7 +56,6 @@ for (const numButton of numberButtons) {
 
 equalsButton.addEventListener("click", function() {
     operate(Number(num1), operation, Number(num2));
-    console.log("hi")
 });
 
 function addition(num1, num2) {
@@ -83,7 +86,12 @@ function operate(num1, operator, num2) {
             answerDisplay.innerHTML = num1 * num2;
             break;
         case "÷":
-            answerDisplay.innerHTML = num1 / num2;
+            if (num1 > num2) {
+                answerDisplay.innerHTML = num1 / num2; 
+            }
+            else {
+            answerDisplay.innerHTML = num1 / parseFloat(num2);
+            }
             break;
     }
 }
