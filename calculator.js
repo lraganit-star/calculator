@@ -1,13 +1,21 @@
 var display = document.getElementById("display");
 const numberButtons = document.getElementsByClassName("number");
-const operationButtons = document.getElementsByClassName("operator")
-const clearButton = document.getElementById("clear")
+const operationButtons = document.getElementsByClassName("operator");
+const clearButton = document.getElementById("clear");
+const equalsButton = document.getElementById("equals");
+var answer = document.getElementById("answer")
 
 var inputVal = "";
 var num1 = "";
 var num2 = "";
 var operation = "";
 var opArr = [];
+var answer = "";
+
+clearButton.addEventListener("click", function() {
+    display.innerHTML = ""
+    inputVal == ""
+})
 
 for (const opButton of operationButtons) {
     opButton.addEventListener("click", function(){
@@ -16,7 +24,7 @@ for (const opButton of operationButtons) {
         display.innerHTML += opButton.innerHTML;
         inputVal += opButton.innerHTML;
     })
-    opArr.append(opButton.innerHTML)
+    opArr.push(opButton.innerHTML)
 }
 
 // when a button is clicked, 
@@ -32,24 +40,16 @@ for (const numButton of numberButtons) {
             num2 += numButton.innerHTML;
         }
 
-        else {
-            do {
+        else if (operation.length == 0) {
                 num1 += numButton.innerHTML;
             }
-            while (operation.length == 0);  
-        }
     })
 }
 
-
-
-
-clearButton.addEventListener("click", function() {
-    display.innerHTML = ""
-    inputVal == ""
-})
-
-
+equalsButton.addEventListener("click", function() {
+    operate(num1, operation, num2);
+    console.log('hi')
+});
 
 function addition(num1, num2) {
     return num1 + num2
@@ -71,14 +71,16 @@ function operate(num1, operator, num2) {
     display.innerHTML += operator;
     switch (operator) {
         case "+": 
-            return addition(num1, num2);
+            answer.innerHTML = addition(num1, num2);
+            break;
         case "-":
-            return subtract(num1, num2);
+            answer.innerHTML = subtract(num1, num2);
+            break;
         case "x":
-            return multiply(num1, num2);
+            answer.innerHTML = multiply(num1, num2);
+            break;
         case "÷":
-            return divide(num1, num2);
+            answer.innerHTML = divide(num1, num2);
+            break;
     }
 }
-
-console.log(operation)
