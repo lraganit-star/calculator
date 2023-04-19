@@ -27,8 +27,6 @@ for (const opButton of operationButtons) {
         operation = opButton.innerHTML;
         display.innerHTML += opButton.innerHTML;
         inputVal += opButton.innerHTML;
-
-        console.log('operator', operation)
     })
     opArr.push(opButton.innerHTML)
 }
@@ -49,8 +47,6 @@ for (const numButton of numberButtons) {
         else if (operation.length == 0) {
                 num1 += numButton.innerHTML;
             }
-        console.log('num1', num1)
-        console.log('num2', num2)
     })
 }
 
@@ -66,25 +62,21 @@ function subtract(num1, num2) {
     return num1 - num2
 }
 
-function multiply(num1, num2) {
-    return num1 * num2
-}
-
-function divide(num1, num2) {
-    return num1 / num2
-}
-
 function operate(num1, operator, num2) {
+
     switch (operator) {
         case "+": 
             answerDisplay.innerHTML = addition(num1, num2);
             break;
+
         case "-":
             answerDisplay.innerHTML = subtract(num1, num2);
             break;
+
         case "x":
             answerDisplay.innerHTML = num1 * num2;
             break;
+            
         case "÷":
             if (num1 > num2) {
                 answerDisplay.innerHTML = num1 / num2; 
