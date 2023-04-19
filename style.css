@@ -3,7 +3,7 @@ body {
 }
 
 #display {
-    height: 50px;
+    height: 100px;
     width: 146px;
     border: 2px solid black;
     text-align: center;
@@ -21,4 +21,9 @@ button{
     font-size: 24px;
     color: white;
     background-color: #93A9d1;
+}
+
+#clear {
+    height: 40px;
+    width: 150px;
 }
