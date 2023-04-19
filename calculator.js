@@ -1,28 +1,30 @@
-var display = document.getElementById("display");
+const display = document.getElementById("display");
 const numberButtons = document.getElementsByClassName("number");
 const operationButtons = document.getElementsByClassName("operator");
 const clearButton = document.getElementById("clear");
 const equalsButton = document.getElementById("equals");
-var answer = document.getElementById("answer")
+const answerDisplay = document.getElementById("answer")
 
 var inputVal = "";
 var num1 = "";
 var num2 = "";
 var operation = "";
 var opArr = [];
-var answer = "";
 
 clearButton.addEventListener("click", function() {
     display.innerHTML = ""
     inputVal == ""
+    answerDisplay.innerHTML = ""
 })
 
 for (const opButton of operationButtons) {
     opButton.addEventListener("click", function(){
 
-        operation == opButton.innerHTML;
+        operation = opButton.innerHTML;
         display.innerHTML += opButton.innerHTML;
         inputVal += opButton.innerHTML;
+
+        console.log('operator', operation)
     })
     opArr.push(opButton.innerHTML)
 }
@@ -43,12 +45,14 @@ for (const numButton of numberButtons) {
         else if (operation.length == 0) {
                 num1 += numButton.innerHTML;
             }
+        console.log('num1', num1)
+        console.log('num2', num2)
     })
 }
 
 equalsButton.addEventListener("click", function() {
-    operate(num1, operation, num2);
-    console.log('hi')
+    operate(Number(num1), operation, Number(num2));
+    console.log("hi")
 });
 
 function addition(num1, num2) {
@@ -68,19 +72,18 @@ function divide(num1, num2) {
 }
 
 function operate(num1, operator, num2) {
-    display.innerHTML += operator;
     switch (operator) {
         case "+": 
-            answer.innerHTML = addition(num1, num2);
+            answerDisplay.innerHTML = addition(num1, num2);
             break;
         case "-":
-            answer.innerHTML = subtract(num1, num2);
+            answerDisplay.innerHTML = subtract(num1, num2);
             break;
         case "x":
-            answer.innerHTML = multiply(num1, num2);
+            answerDisplay.innerHTML = num1 * num2;
             break;
         case "÷":
-            answer.innerHTML = divide(num1, num2);
+            answerDisplay.innerHTML = num1 / num2;
             break;
     }
 }
