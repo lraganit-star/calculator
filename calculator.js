@@ -7,24 +7,41 @@ var inputVal = "";
 var num1 = "";
 var num2 = "";
 var operation = "";
-
-for (const numButton of numberButtons) {
-    numButton.addEventListener("click", function() {
-        
-        display.innerHTML += numButton.innerHTML;
-        inputVal += numButton.innerHTML;
-    })
-}
+var opArr = [];
 
 for (const opButton of operationButtons) {
     opButton.addEventListener("click", function(){
 
         operation == opButton.innerHTML;
         display.innerHTML += opButton.innerHTML;
-        inputVal += opButton
+        inputVal += opButton.innerHTML;
     })
-    console.log(opButton.innerHTML)
+    opArr.append(opButton.innerHTML)
 }
+
+// when a button is clicked, 
+// the value of the number will show in the display
+// it will also populate num1 and num2 with their respective values
+for (const numButton of numberButtons) {
+    numButton.addEventListener("click", function() {
+        
+        display.innerHTML += numButton.innerHTML;
+        inputVal += numButton.innerHTML;
+
+        if (operation.length > 0){
+            num2 += numButton.innerHTML;
+        }
+
+        else {
+            do {
+                num1 += numButton.innerHTML;
+            }
+            while (operation.length == 0);  
+        }
+    })
+}
+
+
 
 
 clearButton.addEventListener("click", function() {
